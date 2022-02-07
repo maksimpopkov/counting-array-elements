@@ -11,8 +11,21 @@ namespace CountingArrayElements
         /// <returns>The number of occurrences of negative integers.</returns>
         public static int GetNegativeIntegerCount(int[] arrayToSearch)
         {
-            // TODO #1. Analyze the implementation of "GetNegativeIntegerCountRecursive" methods, and implement the method using the "for" loop statement.
-            throw new NotImplementedException();
+            int count = 0;
+            if (arrayToSearch == null)
+            {
+                throw new ArgumentNullException(nameof(arrayToSearch));
+            }
+
+            for (int i = 0; i < arrayToSearch.Length; i++)
+            {
+                if (arrayToSearch[i] < 0)
+                {
+                    count++;
+                }
+            }
+
+            return count;
         }
 
         /// <summary>
@@ -22,8 +35,21 @@ namespace CountingArrayElements
         /// <returns>The number of occurrences of even numbers.</returns>
         public static int GetEvenNumberCount(float[] arrayToSearch)
         {
-            // TODO #2. Analyze the implementation of "GetEvenNumberCountRecursive" methods, and implement the method using the "for" loop statement.
-            throw new NotImplementedException();
+            int count = 0;
+            if (arrayToSearch == null)
+            {
+                throw new ArgumentNullException(nameof(arrayToSearch));
+            }
+
+            for (int i = 0; i < arrayToSearch.Length; i++)
+            {
+                if (arrayToSearch[i] % 2 == 0)
+                {
+                    count++;
+                }
+            }
+
+            return count;
         }
 
         /// <summary>
@@ -33,8 +59,21 @@ namespace CountingArrayElements
         /// <returns>The number of occurrences of bytes with enabled bits in high nibble.</returns>
         public static int GetByteWithBitsInHighNibbleCount(byte[] arrayToSearch)
         {
-            // TODO #3. Analyze the implementation of "GetByteWithBitsInHighNibbleCountRecursive" methods, and implement the method using the "for" loop statement.
-            throw new NotImplementedException();
+            int count = 0;
+            if (arrayToSearch == null)
+            {
+                throw new ArgumentNullException(nameof(arrayToSearch));
+            }
+
+            for (int i = 0; i < arrayToSearch.Length; i++)
+            {
+                if (arrayToSearch[i] > 15)
+                {
+                    count++;
+                }
+            }
+
+            return count;
         }
 
         /// <summary>
@@ -107,7 +146,7 @@ namespace CountingArrayElements
             }
 
             int currentAccumulator = (arrayToSearch[index] & 0xF0) > 0 ? accumulator + 1 : accumulator;
-            return GetByteWithBitsInHighNibbleCountRecursive(arrayToSearch, --index, currentAccumulator);
+            return GetByteWithBitsInHighNibbleCountRecursive(arrayToSearch, index - 1, currentAccumulator);
         }
     }
 }
