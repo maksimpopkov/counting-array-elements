@@ -107,7 +107,7 @@ namespace CountingArrayElements
             }
 
             int currentAccumulator = (arrayToSearch[index] & 0xF0) > 0 ? accumulator + 1 : accumulator;
-            return GetByteWithBitsInHighNibbleCountRecursive(arrayToSearch, --index, currentAccumulator);
+            return GetByteWithBitsInHighNibbleCountRecursive(arrayToSearch, index - 1, currentAccumulator);
         }
     }
 }
